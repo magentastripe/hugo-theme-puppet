@@ -26,13 +26,6 @@
 {{ $mainJs := resources.Get "js/hux-blog.js" | minify | fingerprint }}
 <script src="{{ $mainJs.RelPermalink }}"></script>
 
-<!-- Simple Jekyll Search -->
-<script src={{ "js/simple-jekyll-search.min.js" | relURL }}></script>
-
-{{ $searchJs := resources.Get "js/search.js" | resources.ExecuteAsTemplate "js/search.js" . | minify | fingerprint }}
-<script src="{{ $searchJs.RelPermalink }}"></script>
-
-
 {{ if eq .Type "archive" }}
 {{ $archiveJS := resources.Get "js/archive.js" | minify | fingerprint }}
 <script src='{{ $archiveJS.RelPermalink }}'></script>
